@@ -58,11 +58,11 @@
 <p>North Carolina is our favorite state, so here are some cool maps about it.</p>
 
 <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <button onclick="myFunction()" class="dropbtn">Please select map!</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#home" onclick=testing()>Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#home" onclick=makeMap('red')>Red Map</a>
+    <a href="#about" onclick=makeMap('blue')>Blue Map</a>
+    <a href="#contact" onclick=makeMap('green')>Green Map</a>
   </div>
 </div>
 
@@ -102,7 +102,7 @@ window.onclick = function(event) {
 <!-- Create an element where the map will take place -->
 <svg id="my_dataviz" width="400" height="300"></svg>
 <script>
-function testing() {
+function makeMap(color) {
   // The svg
   var svg = d3.select("svg"),
     width = +svg.attr("width"),
@@ -117,9 +117,23 @@ function testing() {
 
   // Data and color scale
   var data = d3.map();
+  if (color=='red') {
   var colorScale = d3.scaleThreshold()
     .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+    .range(d3.schemeReds[7]);
+    }
+    else if (color=='blue') {
+    var colorScale = d3.scaleThreshold()
+    .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
     .range(d3.schemeBlues[7]);
+    }
+    else if (color=='green') {
+    var colorScale = d3.scaleThreshold()
+    .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+    .range(d3.schemeGreens[7]);
+    }
+
+
 
   // Load external data and boot
   d3.queue()
@@ -149,14 +163,6 @@ function testing() {
 
 }
 </script>
-
-
-
-
-
-
-
-
 
 
 
