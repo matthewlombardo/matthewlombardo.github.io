@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+<style>
+body {
+	background-color: #FBFAED;
+}
+</style>
 <body>
 <center><h1>EN.601.490/690 HCI Project 2</h1></center>
 <center><h3>Team Members: Cindy Koo, Stephan Kemper, & Matthew Lombardo</h3></center>
@@ -13,11 +18,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .dropbtn {
-  background-color: #3498DB;
+  background-color: #2980B9;
   color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+  padding: 12px;
+  font-size: 12px;
+  border: 1px;
   cursor: pointer;
 }
 
@@ -158,11 +163,22 @@ function makeMap(color) {
         .attr("fill", function (d) {
           d.total = data.get(d.id) || 0;
           return colorScale(d.total);
-        });
+        })
       }
 
 }
 </script>
+
+<h2> Voting History </h2>
+
+<p> Here are some fun bar graphs linking voting data to certain demographics </p>
+
+
+
+
+
+
+
 
 
 
